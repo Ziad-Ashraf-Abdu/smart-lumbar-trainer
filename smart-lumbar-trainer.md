@@ -42,23 +42,23 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 
 ### Images
 <p align="center">
-  <img src="hardware-components.jpg" width="800"><br/>
+  <img src="/hardware-components.jpg" width="800"><br/>
   <i>The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
 </p>
 
 <p align="center">
-  <img src="deployment-back.jpg" width="800"><br/>
+  <img src="/deployment-back.jpg" width="800"><br/>
   <i>The complete wearable system deployed on a test subject (back view).</i>
 </p>
 
 <p align="center">
-  <img src="deployment-side.jpg" width="800"><br/>
+  <img src="/deployment-side.jpg" width="800"><br/>
   <i>Side view showing the system monitoring lumbar posture.</i>
 </p>
 
 ### Videos
 <video controls width="100%">
-  <source src="demo-video.mp4" type="video/mp4">
+  <source src="/demo-video.mp4" type="video/mp4">
 </video>
 
 > **Technical Note on Visualization:** In the demonstration video, a slight forward inclination may be observed even when the user is stationary. This is due to the tracking mechanics used to draw the natural spine. Specifically, the lumbar sensor is positioned on a slightly more forward plane relative to the pelvic sensor due to clothing and textile belt limitations. While this affects the visual representation of the spine *leaning,* it does not impact the accuracy of the relative lumbar flexion angle calculations.
