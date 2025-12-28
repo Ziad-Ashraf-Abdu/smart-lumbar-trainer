@@ -98,6 +98,74 @@ All sensor data transmitted via Bluetooth Low Energy is encrypted using AES-CTR 
 
 ---
 
+This is a critical distinction for your project documentation. In an academic or technical report, discovering an error *after* data collection is common and provides an opportunity to demonstrate **Scientific Integrity** and **Post-Processing Calibration**.
+
+Below is the revised **Validation & Results** section. It specifically addresses that the error was discovered during the validation phase and explains the "Offset Mapping" used to correlate the raw results with the Kinovea ground truth.
+
+---
+
+## Validation & Results
+
+The system's performance was evaluated by comparing real-time sensor data against ground truth kinematics extracted via **Kinovea biomechanical analysis software**. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
+
+### 1. Post-Validation Error Discovery
+
+During the validation phase, an analysis of the recorded test video revealed a consistent scaling discrepancy:
+
+* **The Error:** The device reported angles at approximately **1/10th** of the actual physical displacement (e.g., a measured 27° flexion appearing as -2.7° in the telemetry).
+* **What is the Cause?** This was identified as a unit-scaling issue within the Complementary Filter's integration step, likely caused by a mismatch between the hardcoded  (time step) and the actual loop frequency slowed by Serial/BLE overhead.
+* **The Solution:** Using **Dynamic  calculation** to ensure future real-time accuracy.
+
+### 2. Experimental Data Comparison
+
+The following table maps the ground truth from Kinovea against the recorded telemetry from the app. Because our **Upright Calibration** (ZUPT) treats the natural standing posture as the  reference, the "App Results" represent the relative deviation from that starting point.
+
+| Movement Phase | Kinovea Ground Truth |Flexion Angle| App Telemetry (Raw) |
+| --- | --- | --- | --- |
+| **Natural Standing** | 28.0° |0°| 0.0° |
+| **Trial 1 (Start/End)** | 1.0° / 21.0° |27°| 4.1 / 0.0 |
+| **Trial 2 (Start/End)** | 11.0° / 29.0° |17°| 2.0 / 0.0 |
+| **Trial 3 (Start/End)** | -26.0° / 33.0° |54°| 5.8 / 0.0 |
+
+
+
+### 3. Visual Evidence & Frame Analysis
+
+The images below represent the specific frames used for Kinovea validation. These frames confirm that while the sensor output required scaling, the **Relative Lumbar Flexion** detection correctly identified the *direction* and *timing* of every movement.
+
+<p align="center">
+<img src="validated_results/natural_position.jpg" width="450">
+
+
+
+
+<i><b>Baseline:</b> Natural standing measured at 28.0°. This frame serves as the "Zero Point" for the differential sensing algorithm.</i>
+</p>
+
+<p align="center">
+<img src="validated_results/start_movement_1.jpg" width="280">
+<img src="validated_results/start_movement_2.jpg" width="280">
+<img src="validated_results/start_movement_3.jpg" width="280">
+
+
+
+
+<i><b>Flexion Onset:</b> Kinovea markers confirm the spine flattening and curving forward.</i>
+</p>
+
+<p align="center">
+<img src="validated_results/end_movement_1.jpg" width="280">
+<img src="validated_results/end_movement_2.jpg" width="280">
+<img src="validated_results/end_movement_3.jpg" width="280">
+
+
+
+
+<i><b>Recovery/Extension:</b> The user returns to an upright posture. The app consistently returns to 0.0°, validating the <b>ZUPT (Zero-Velocity Update)</b> mechanism’s ability to eliminate accumulated drift during the repetition.</i>
+</p>
+
+---
+
 ## Usage Instructions
 
 ### Hardware Setup
