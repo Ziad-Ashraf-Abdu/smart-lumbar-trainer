@@ -31,9 +31,9 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 
 **Key features:**
 * **Differential Sensing**: Employs two MPU6050 sensors strategically placed at the thoracolumbar (T12/L1) and lumbosacral (L5/S1) junctions.
-* **Bilateral Haptic Feedback**: Immediate tactile cueing via vibration motors positioned over the erector spinae muscles.
+* **Bilateral Haptic Feedback**: Immediate tactile cueing via vibration motors positioned over the erector (back) spinae muscles.
 * **Robust Orientation Filter**: Combines complementary filtering and Zero-Velocity Update (ZUPT) algorithms to mitigate sensor drift.
-* **Secure Mobile Integration**: Real-time data visualization via Flutter app, with data secured using AES-CTR encryption over Bluetooth Low Energy.
+* **Secure Mobile Integration**: Real-time data spine visualization via Flutter app, with data secured using AES-CTR encryption over Bluetooth Low Energy.
 * **Three-Zone Safety System**: Green, Yellow, and Red zones based on biomechanical safe thresholds.
 
 ---
