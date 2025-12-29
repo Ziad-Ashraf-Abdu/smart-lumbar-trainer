@@ -44,7 +44,7 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 
 <p align="center">
   <img src="/cover-image.jpg" width="800"><br/>
-  <i>Fig 1. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
+  <i>Fig 0. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
 </p>
 
 <p align="center">
