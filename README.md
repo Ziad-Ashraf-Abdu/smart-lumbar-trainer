@@ -324,7 +324,34 @@ Example: `15.2,-2.3,0.1,28.4,-2.1,0.2,13.2,YELLOW|FLEXION`
 
 ---
 
-## Future Work 
+
+## Future Work
+
+Future development of the Dual-IMU Smart Trainer will focus on expanding both the analytical depth and user-facing capabilities of the system. Key planned enhancements include:
+
+- **Progress Monitoring & Longitudinal Analysis**  
+  Implement session-based data logging and trend analysis to track lumbar posture improvements over time, enabling objective assessment of technique progression and injury-risk reduction.
+
+- **Personalized Threshold Adaptation**  
+  Introduce adaptive safety thresholds based on individual anthropometrics, training level, and historical performance rather than fixed angular limits.
+
+- **Exercise-Specific Models**  
+  Extend posture classification to be exercise-aware (e.g., deadlift, squat, Romanian deadlift), allowing context-dependent feedback and reduced false warnings.
+
+- **Machine Learning–Based Classification**  
+  Integrate lightweight machine learning models to enhance movement phase detection and identify hazardous lifting patterns beyond simple threshold-based rules.
+
+- **Cloud Integration & Remote Coaching**  
+  Enable optional cloud synchronization for remote progress monitoring, coach dashboards, and data-driven feedback outside the training session.
+
+- **Miniaturization & Wearability Improvements**  
+  Optimize hardware packaging, sensor placement, and textile integration to improve comfort, reduce motion artifacts, and support long-duration use.
+
+- **Extended Clinical Validation**  
+  Conduct large-scale validation studies across different populations (novice lifters, athletes, and rehabilitation patients) to further establish robustness and clinical relevance.
+
+These enhancements aim to evolve the system from a real-time corrective device into a comprehensive training analytics and injury-prevention platform.
+
 
 ---
 
