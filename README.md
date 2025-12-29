@@ -351,6 +351,14 @@ Future work for this system will focus on advancing longitudinal biomechanical a
 These developments aim to evolve the system from real-time posture correction into a longitudinal biomechanical assessment tool for injury prevention.
 
 
+---
+## Conclusion
+
+This work presented a **Dual-IMU Smart Trainer** for real-time lumbar posture monitoring and correction during resistance training, addressing a critical limitation of single-sensor systems that fail to distinguish healthy hip hinge motion from harmful lumbar flexion. By employing a **differential sensing architecture**, the system successfully isolated relative lumbar motion through quaternion-based kinematics, enabling accurate detection of flexion and extension independent of global trunk inclination.
+
+The integration of **robust orientation filtering**, **SHOE-based Zero-Velocity Updates (ZUPT)**, and an **upright reference calibration** ensured stable measurements with minimal drift, even during repetitive dynamic movements. Experimental validation using **Kinovea-based video analysis** confirmed that, despite an initial scaling issue later identified and addressed, the system reliably captured the **direction, timing, and repeatability** of lumbar flexion events. The consistent return to a zero reference after each repetition further validated the effectiveness of the drift-mitigation strategy.
+
+By combining accurate biomechanical sensing with an intuitive **three-zone haptic feedback system**, the proposed trainer provides immediate, coach-like tactile cues that promote safer lifting mechanics without restricting natural movement. Overall, this project demonstrates the feasibility of a low-cost, wearable, and secure platform for real-time lumbar posture correction and establishes a strong foundation for future longitudinal biomechanical assessment and injury prevention research.
 
 ---
 
