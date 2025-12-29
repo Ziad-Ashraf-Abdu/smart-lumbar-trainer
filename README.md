@@ -323,6 +323,54 @@ This project is developed as part of academic research at Cairo University. For 
 
 ---
 
+
+## References
+
+[1] S. McGill, “Low back stability: From formal description to issues for performance and rehabilitation,” *Exercise and Sport Sciences Reviews*, vol. 29, no. 1, pp. 26–31, 2001.
+
+[2] J. P. Callaghan and S. M. McGill, “Intervertebral disc herniation: Studies on a porcine model exposed to highly repetitive flexion/extension motion with compressive force,” *Clinical Biomechanics*, vol. 16, no. 1, pp. 28–37, 2001.
+
+[3] M. H. Eltoukhy et al., “Quantifying L5/S1 joint loading during the back squat, deadlift, and hang power clean,” *Journal of Biomechanics*, vol. 49, no. 10, pp. 1994–2003, Jul. 2016.
+
+[4] D. Kim et al., “A comparative analysis of IMUs and optical systems for daily motion tracking,” in *Proceedings of the IEEE International Conference on Body Sensor Networks (BSN)*, Jun. 2015.
+
+[5] D. P. Whelan et al., “Classification of deadlift biomechanics with wearable inertial measurement units,” *Journal of Biomechanics*, vol. 58, pp. 93–100, 2017.
+
+[6] C. Mendes et al., “Development of a smart lumbar posture correction vest,” *Studies in Health Sciences*, vol. 5, no. 2, p. e3459, Apr. 2024.  
+[Online]. Available: https://doi.org/10.54022/shsv5n2-009
+
+[7] E. B. Lohman III et al., “Comparison of kinematics and myoelectrical activity during deadlift with conventional and hexagonal barbell,” *Applied Sciences*, vol. 14, no. 5, p. 1926, 2024.
+
+[8] E. Papi, A. H. McGregor, and A. M. J. Bull, “Wearable technology for spine movement assessment: A systematic review,” *Journal of Biomechanics*, vol. 64, pp. 186–197, 2017.
+
+[9] S. Verma et al., “Assessment of spinal motion and alignment using inertial sensor and manual measurements,” *Medical Research Archives*, vol. 11, no. 11, 2023.
+
+[10] W. Y. Wong and M. S. Wong, “Smart garment for trunk posture monitoring: A preliminary study,” *Scoliosis and Spinal Disorders*, vol. 12, no. 1, p. 7, 2017.
+
+[11] B. L. O’Connor et al., “Mechanoreceptors in articular tissues: Morphology, distribution, and role in proprioception,” *Orthopedic Clinics of North America*, vol. 35, no. 3, pp. 233–243, 2004.
+
+[12] S. Battis et al., “Wearable technology mediated biofeedback to modulate spine motor control: A scoping review,” *BMC Musculoskeletal Disorders*, vol. 25, no. 1, p. 770, 2024.
+
+[13] I. Skog, P. Handel, J. Nilsson, and J. Rantakokko, “Zero-velocity detection—An algorithm evaluation,” *IEEE Transactions on Biomedical Engineering*, vol. 57, no. 11, pp. 2657–2666, Nov. 2010.
+
+[14] J. P. Scannell and S. M. McGill, “Lumbar posture—Should it, and can it, be neutral?,” *Physical Therapy*, vol. 83, no. 10, pp. 912–921, Oct. 2003.
+
+[15] U. Aasa et al., “Variability of lumbar spinal alignment among power and weightlifters during the deadlift and barbell back squat,” *Sports Biomechanics*, vol. 21, no. 6, pp. 701–717, 2022.
+
+[16] L. Sheeran et al., “Distinct kinematic patterns at the upper and lower lumbar spine differentiate subgroups of non-specific chronic low back pain,” *Gait & Posture*, vol. 109, pp. 119–125, Mar. 2024.
+
+[17] Espressif Systems, “ESP32-WROOM-32E Datasheet v1.4,” 2023.
+
+[18] TDK InvenSense, “MPU-6000 and MPU-6050 Product Specification, Revision 3.4,” 2013.
+
+[19] A. M. Sabatini, “Quaternion-based strap-down integration method for applications of inertial sensing to gait analysis,” *Medical & Biological Engineering & Computing*, vol. 43, pp. 94–101, 2005.
+
+[20] S. O. H. Madgwick et al., “Estimation of IMU and MARG orientation using a gradient descent algorithm,” in *IEEE International Conference on Rehabilitation Robotics*, 2011.
+
+
+---
+
+
 ## Contribution Notes
 This project is open for collaborative research and development. To contribute:
 1. Fork the repository
