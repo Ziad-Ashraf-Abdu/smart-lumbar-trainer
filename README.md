@@ -324,6 +324,10 @@ Example: `15.2,-2.3,0.1,28.4,-2.1,0.2,13.2,YELLOW|FLEXION`
 
 ---
 
+##Future Work 
+
+---
+
 ## License
 This project is developed as part of academic research at Cairo University. For licensing inquiries, please contact the development team.
 
