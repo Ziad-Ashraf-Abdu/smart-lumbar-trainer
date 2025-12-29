@@ -326,30 +326,31 @@ Example: `15.2,-2.3,0.1,28.4,-2.1,0.2,13.2,YELLOW|FLEXION`
 
 ## Future Work
 
-Future work for this system will focus on expanding both the analytical capabilities and the user experience. Planned developments include:
+Future work for this system will focus on advancing longitudinal biomechanical assessment and closed-loop feedback evaluation. Planned developments include:
 
-- **Progress Monitoring & Longitudinal Analysis**  
-  Session-based data logging and trend analysis to monitor lumbar posture improvements over time and objectively evaluate technique progression and injury-risk reduction.
+- **Flexion Trend Analysis Over Time**  
+  Quantitative tracking of relative lumbar flexion across sessions to analyze long-term changes in movement patterns, variability, and peak flexion exposure during resistance training.
 
-- **Personalized Threshold Adaptation**  
-  Adaptive safety thresholds based on individual anthropometrics, training level, and historical performance instead of fixed angular limits.
+- **Haptic Feedback Effectiveness Assessment**  
+  Evaluation of the user’s biomechanical response to haptic cueing by measuring correction latency, flexion reduction magnitude, and post-feedback posture stability.
 
-- **Exercise-Specific Posture Models**  
-  Exercise-aware posture classification (e.g., deadlift, squat, Romanian deadlift) to enable context-dependent feedback and reduce false warnings.
+- **Adaptive Feedback Personalization**  
+  Dynamic tuning of feedback thresholds and vibration patterns based on the user’s historical response to haptic cues and observed learning rate.
 
-- **Machine Learning–Based Movement Analysis**  
-  Integration of lightweight machine learning models to improve movement phase detection and identify hazardous lifting patterns beyond simple threshold-based logic.
+- **Exercise-Specific Biomechanical Context**  
+  Incorporation of exercise-aware models (e.g., deadlift vs squat) to interpret flexion trends relative to task-specific biomechanical demands.
 
-- **Cloud Integration & Remote Monitoring**  
-  Optional cloud synchronization to support remote progress monitoring, coach dashboards, and long-term data analysis.
+- **Learning and Motor Adaptation Modeling**  
+  Investigation of motor learning effects by assessing whether repeated haptic feedback leads to reduced unsafe flexion without continuous cueing.
 
-- **Wearability and Hardware Optimization**  
-  Further miniaturization, improved sensor placement, and enhanced textile integration to increase comfort and reduce motion artifacts.
+- **Remote Progress Monitoring and Analytics**  
+  Optional aggregation of longitudinal flexion metrics to support coach-level analysis and long-term injury-risk profiling.
 
-- **Extended Experimental and Clinical Validation**  
-  Large-scale validation across different populations, including novice lifters, trained athletes, and rehabilitation users, to strengthen clinical relevance and robustness.
+- **Extended Experimental Validation**  
+  Larger-scale studies to correlate flexion trend improvements and feedback responsiveness with reduced injury risk across different user populations.
 
-These developments aim to evolve the system from a real-time corrective tool into a comprehensive posture monitoring and injury-prevention platform.
+These future enhancements aim to transition the system from real-time posture correction toward an evidence-driven framework for motor learning and injury prevention.
+
 
 ---
 
