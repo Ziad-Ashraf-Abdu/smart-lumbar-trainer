@@ -25,7 +25,7 @@ We would like to express our gratitude to our Faculty Advisor, **Prof. Aliaa Reh
 ---
 
 ## Overview
-Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics. This project addresses the inability of novice weightlifters to dissociate hip flexion from lumbar flexion during exercises such as the deadlift and squat.
+Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics. This project addresses the inability of novice weightlifters to dissociate hip flexion ( The movement starts from an upright position, where the subject bends forward to reach the toes )  from lumbar flexion during exercises such as the deadlift and squat.
 
 The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isolate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion. Unlike single-sensor devices that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements.
 
@@ -70,7 +70,7 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 ### 1. Differential Sensing & Relative Angle Calculation
 The system derives the relative lumbar angle through quaternion-based kinematics using the formula:
 ```q_rel = q_sac^(-1) ⊗ q_thor```
-By isolating the rotation around the pitch axis (sagittal plane), the system specifically detects flexion/extension while ignoring lateral rotation and benign movements. 
+By isolating the rotation around the pitch axis (sagittal plane), the system specifically detects flexion/extension ( The subject then extends the trunk backward to return to the upright posture ) while ignoring lateral rotation and benign movements. 
 The pitch angle is extracted using:
 ``` θ_pitch = arcsin(2(q₀q₂ - q₃q₁)).```
 
