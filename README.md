@@ -103,12 +103,6 @@ The bilateral haptic motors are positioned laterally over the erector spinae mus
 
 ---
 
-This is a critical distinction for your project documentation. In an academic or technical report, discovering an error *after* data collection is common and provides an opportunity to demonstrate **Scientific Integrity** and **Post-Processing Calibration**.
-
-Below is the revised **Validation & Results** section. It specifically addresses that the error was discovered during the validation phase and explains the "Offset Mapping" used to correlate the raw results with the Kinovea ground truth.
-
----
-
 ## Validation & Results
 
 The system's performance was evaluated by comparing real-time sensor data against ground truth kinematics extracted via **Kinovea biomechanical analysis software**. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
