@@ -31,9 +31,9 @@ This project was developed by **Zeyad Ashraf, Andrawos Baheeg, Fady Osama, and A
 ---
 
 ## Overview
-Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics. This project addresses the inability of novice weightlifters to dissociate hip flexion i.e( The movement starts from an upright position, where the subject bends forward to reach the toes )  from lumbar flexion during exercises such as the deadlift and squat.
+Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics [1], [2], [3]. This project addresses the inability of novice weightlifters to dissociate hip flexion (i.e., hinging at the pelvis) from lumbar flexion (i.e., rounding the lower spine) during exercises such as the deadlift and squat[14] and [15].
 
-The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isolate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion. Unlike single-sensor devices that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements.
+The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isolate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion[8],[10]. Unlike single-sensor devices [6] that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements.
 
 **Key features:**
 * **Differential Sensing**: Employs two MPU6050 sensors strategically placed at the thoracolumbar (T12/L1) and lumbosacral (L5/S1) junctions.
@@ -49,28 +49,28 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 ### Images
 
 <p align="center">
-  <img src="/cover-image.jpg" width="800"><br/>
+  <img src="cover-image.jpg" width="800"><br/>
   <i>Fig 0. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
 </p>
 
 <p align="center">
-  <img src="/hardware-components.jpg" width="800"><br/>
+  <img src="hardware-components.jpg" width="800"><br/>
   <i>Fig 1. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
 </p>
 
 <p align="center">
-  <img src="/deployment-back.jpg" width="800"><br/>
+  <img src="deployment-back.jpg" width="800"><br/>
   <i>Fig 2. The complete wearable system deployed on a test subject (back view).</i>
 </p>
 
 <p align="center">
-  <img src="/deployment-side.jpg" width="800"><br/>
+  <img src="deployment-side.jpg" width="800"><br/>
   <i>Fig 3. Side view showing the system monitoring lumbar posture.</i>
 </p>
 
 ### Videos
 <video controls width="100%">
-  <source src="/demo-video.mp4" type="video/mp4">
+  <source src="demo-video.mp4" type="video/mp4">
 </video>
 
 > **Technical Note on Visualization:** In the demonstration video, a slight forward inclination may be observed even when the user is stationary. This is due to the tracking mechanics used to draw the natural spine. Specifically, the lumbar sensor is positioned on a slightly more forward plane relative to the pelvic sensor due to clothing and textile belt limitations. While this affects the visual representation of the spine *leaning,* it does not impact the accuracy of the relative lumbar flexion angle calculations.
@@ -81,37 +81,49 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 
 ### 1. Differential Sensing & Relative Angle Calculation
 The system derives the relative lumbar angle through quaternion-based kinematics using the formula:
-```q_rel = q_sac^(-1) ⊗ q_thor```
+```q_rel = q_sac^(-1) ⊗ q_thor``` [19]
 By isolating the rotation around the pitch axis (sagittal plane), the system specifically detects flexion/extension ( The subject then extends the trunk backward to return to the upright posture ) while ignoring lateral rotation and benign movements. 
 The pitch angle is extracted using:
 ``` θ_pitch = arcsin(2(q₀q₂ - q₃q₁)).```
 
 ### 2. Calibration and ZUPT
-To eliminate zero-rate error, a blocking calibration routine averages 2000 samples at startup while the user remains stationary in an upright position. During operation, the Stance Hypothesis Optimal Detection (SHOE) algorithm identifies stationary periods by computing a Generalized Likelihood Ratio Test statistic that combines accelerometer variance and gyroscope energy. When stationary periods are detected, Zero-Velocity Updates (ZUPT) are applied to maintain accuracy despite sensor drift.
+To eliminate zero-rate error, a blocking calibration routine averages 2000 samples at startup while the user remains stationary in an upright position. During operation, the Stance Hypothesis Optimal Detection (SHOE) [13] algorithm identifies stationary periods by computing a Generalized Likelihood Ratio Test statistic that combines accelerometer variance and gyroscope energy. When stationary periods are detected, Zero-Velocity Updates (ZUPT) are applied to maintain accuracy despite sensor drift[13].
 
 ### 3. Posture Classification
 The system employs movement detection that classifies posture into three distinct cases:
-* **Flexion**: Detected when angle decreases rapidly (>2° per update, >60°/s)
-* **Extension**: Detected when angle increases rapidly
-* **Upright**: Detected when near zero angle (<4°) with minimal movement for 250ms
+
+* **Flexion**: it's detected when angle decreases rapidly (>2° per update, >60°/s). In a deadlift, this represents the **descending phase** or the initial hinging at the hips to reach the bar. If detected during the pull, it indicates "rounding" of the back.
+
+* **Extension**: detected when angle increases rapidly. This signifies the **concentric pull** or the "lockout" phase. It tracks the athlete’s transition from a hinged position back to a vertical standing state as they drive the hips forward to complete the lift.
+
+
+* **Upright**: when athlete posture is near zero angle (<4°) with minimal movement for 250ms. This represents the **setup or completion phase**. It monitors the athlete’s ability to maintain a neutral, vertical spine before the first rep or after the lockout, ensuring the lift begins and ends with proper spinal alignment.
+
 
 This classification enables the system to distinguish between dynamic movement and stable postures, reducing false positives.
 
 ### 4. Threshold-Based Haptic Feedback
 
-The system classifies posture into three zones based on biomechanically safe thresholds derived from powerlifting research:
+The system classifies posture into three zones based on biomechanically safe thresholds derived from research on competitive lifters. These thresholds specifically monitor the lower lumbar (lumbopelvic) region, where significant adjustments occur during heavy lifting.
 
-* **Green (<20°)**: Safe Neutral Zone. No feedback.  
-* **Yellow (20°–30°)**: Warning Zone. Pulsed haptic feedback (200 ms intervals).  
-* **Red (>30°)**: Critical Zone. Continuous haptic feedback.
+* **Green (<20°): Safe Neutral Zone**[1], [14] This range represents the "neutral zone," where spinal load is equally distributed across tissues. Research shows experienced lifters maintain an average range of motion (ROM) of approximately 21.7° during a deadlift[15]. No feedback is provided.
 
-The bilateral haptic motors are positioned laterally over the erector spinae muscles, providing intuitive tactile cueing that mimics coach feedback.
+* **Yellow (20°–30°): Warning Zone** This indicates the athlete is moving toward the outer range of their neutral posture, where loads begin to be unequally distributed[2]. Pulsed haptic feedback (200 ms intervals) alerts the athlete to re-stabilize the torso.
+
+* **Red (>30°): Critical Zone**
+ Exceeding 30° represents a significant deviation from neutral alignment, signaling that the torso is no longer in a braced, rigid position. Continuous haptic feedback provides an immediate signal to correct or abort the rep to prevent microtrauma.
+
+### 5. Relative Flexibility and Dissociation
+
+A key driver for exceeding these thresholds is **relative flexibility**, or the degree of dissociation between the hips and the lumbar spine. The body operates as a linked system where each segment influences the motion of adjacent segments.
+
+If an athlete has relatively higher stiffness in the hip joints compared to the lumbar spine, the spine will more readily flex to achieve the required depth or reach the barbell. The haptic feedback serves as a real-time monitor for this lack of dissociation; when the hips reach their terminal range, any further movement is forced into the lumbar region, triggering a transition from the Green to the Yellow or Red zones. This cueing encourages the athlete to maintain a "back-dominant" or "hip-dominant" strategy that preserves spinal neutrality[12].
 
 ---
 
 ## Validation & Results
 
-The system's performance was evaluated by comparing real-time sensor data against ground truth kinematics extracted via **Kinovea biomechanical analysis software**. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
+The system's performance was evaluated by comparing real-time sensor data against ground truth kinematics extracted via **Kinovea biomechanical analysis software** [4]. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
 
 ### 1. Post-Validation Error Discovery
 
@@ -186,7 +198,7 @@ The images below represent the specific frames used for Kinovea validation. Thes
 
 > **Note on OLED Power Consumption**  
 > An OLED display was initially integrated into the system to support **calibration feedback** and **battery status monitoring**. However, experimental evaluation showed that the OLED introduced **significant power consumption**, which substantially reduced the overall system runtime. As a result, the OLED module was **temporarily disabled** in the current system implementation.  
-> Future work will focus on identifying **power-efficient alternatives** for system status visualization, such as low-power displays, adaptive duty-cycling, or event-driven activation schemes to preserve battery life.
+> Future work will focus on identifying **power-efficient alternatives** for system status visualization to preserve battery life.
 
 
 ### Mobile App Connection
@@ -212,13 +224,13 @@ The images below represent the specific frames used for Kinovea validation. Thes
 ---
 
 ## Tech Stack
-* **Microcontroller**: ESP32-WROOM-32E (MYOSA Platform)
-* **Sensors**: 2× MPU6050 (6-DoF Accelerometer/Gyroscope)
+* **Microcontroller**: ESP32-WROOM-32E (MYOSA Platform)[17]
+* **Sensors**: 2× MPU6050 (6-DoF Accelerometer/Gyroscope)[18]
 * **Communication**: Bluetooth Low Energy (BLE)
 * **Security**: AES-CTR 128-bit encryption (mbedTLS)
 * **Algorithms**: 
-  * Complementary Filter for orientation estimation
-  * SHOE-based Zero-Velocity Update (ZUPT)
+  * Complementary Filter for orientation estimation [20]
+  * SHOE-based Zero-Velocity Update (ZUPT)[13]
   * Quaternion kinematics for relative angle calculation
   * Advanced posture classification (Flexion/Extension/Upright detection)
 * **Hardware Pins**: 
