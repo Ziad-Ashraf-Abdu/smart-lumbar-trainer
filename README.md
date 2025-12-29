@@ -184,6 +184,11 @@ The images below represent the specific frames used for Kinovea validation. Thes
 2. **System Placement**: Secure the belt so the Main Control Unit (containing the Pelvis IMU) is positioned at the S1/L5 level (lower back/sacral region). The smaller Thoracic Capsule (Lumbar IMU) should be positioned at the T12/L1 level (mid-back).
 3. **Verify Calibration**: After calibration completes, the system will set the upright reference automatically. The LED will turn off when ready.
 
+> **Note on OLED Power Consumption**  
+> An OLED display was initially integrated into the system to support **calibration feedback** and **battery status monitoring**. However, experimental evaluation showed that the OLED introduced **significant power consumption**, which substantially reduced the overall system runtime. As a result, the OLED module was **temporarily disabled** in the current system implementation.  
+> Future work will focus on identifying **power-efficient alternatives** for system status visualization, such as low-power displays, adaptive duty-cycling, or event-driven activation schemes to preserve battery life.
+
+
 ### Mobile App Connection
 1. **Setup**: Access the companion Flutter application:
     #
