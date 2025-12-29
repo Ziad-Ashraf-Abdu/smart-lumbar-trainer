@@ -91,11 +91,25 @@ The system employs movement detection that classifies posture into three distinc
 
 This classification enables the system to distinguish between dynamic movement and stable postures, reducing false positives.
 
-### 4. Threshold-Based Haptic Feedback
-The system classifies posture into three zones based on biomechanically safe thresholds derived from powerlifting research:
-* **Green (<20°)**: Safe Neutral Zone. No feedback.
-* **Yellow (20°–30°)**: Warning Zone. Pulsed haptic feedback (200ms intervals).
-* **Red (>30°)**: Critical Zone. Continuous haptic feedback.
+### 4. Threshold-Based Haptic Feedback (Biomechanical Justification)
+
+The system classifies lumbar posture into three safety zones using **relative lumbar flexion angles** derived from established **biomechanics and powerlifting literature**, rather than arbitrary or empirically tuned values.
+
+These thresholds are grounded in studies analyzing **lumbar spine kinematics, neutral spine recommendations, and injury mechanisms** during high-load resistance exercises such as the deadlift and squat (e.g., McGill; Aasa et al.).
+
+* **Green Zone (<20°)** – *Safe / Neutral Lumbar Posture*  
+  Angles below 20° correspond to the commonly reported **neutral lumbar spine range** during hip-dominant lifting tasks. Biomechanical analyses show that trained lifters typically maintain lumbar flexion within this range when performing safe and efficient lifts. No haptic feedback is applied in this zone.
+
+* **Yellow Zone (20°–30°)** – *Warning / Elevated Mechanical Demand*  
+  This range reflects **moderate lumbar flexion beyond neutral posture**, where spinal shear forces and intervertebral disc stress begin to increase, particularly under external load. While not immediately injurious, repeated exposure in this zone has been linked to higher cumulative tissue loading. The system delivers **pulsed haptic feedback (200 ms intervals)** to warn the user and encourage voluntary posture correction.
+
+* **Red Zone (>30°)** – *Critical / High Injury Risk*  
+  Lumbar flexion exceeding 30° has been associated in biomechanical literature with **significantly increased disc strain and posterior annulus stress**, especially during loaded flexion. Entry into this zone triggers **continuous bilateral haptic feedback**, prompting immediate corrective action.
+
+The **bilateral vibration motors** are positioned laterally over the **erector spinae muscles** to provide symmetrical and intuitive tactile cueing. This placement aligns with natural proprioceptive feedback pathways and approximates corrective cues typically provided by an experienced strength coach.
+
+Overall, these thresholds are intentionally conservative and literature-informed, prioritizing **injury prevention** while allowing natural hip hinge mechanics without penalizing healthy movement patterns.
+
 
 The bilateral haptic motors are positioned laterally over the erector spinae muscles, providing intuitive tactile cueing that mimics coach feedback.
 
