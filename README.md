@@ -31,7 +31,7 @@ This project was developed by **Zeyad Ashraf, Andrawos Baheeg, Fady Osama, and A
 ---
 
 ## Overview
-Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics. This project addresses the inability of novice weightlifters to dissociate hip flexion ( The movement starts from an upright position, where the subject bends forward to reach the toes )  from lumbar flexion during exercises such as the deadlift and squat.
+Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics. This project addresses the inability of novice weightlifters to dissociate hip flexion i.e( The movement starts from an upright position, where the subject bends forward to reach the toes )  from lumbar flexion during exercises such as the deadlift and squat.
 
 The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isolate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion. Unlike single-sensor devices that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements.
 
