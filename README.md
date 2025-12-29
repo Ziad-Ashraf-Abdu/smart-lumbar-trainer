@@ -101,10 +101,6 @@ The system classifies posture into three zones based on biomechanically safe thr
 
 The bilateral haptic motors are positioned laterally over the erector spinae muscles, providing intuitive tactile cueing that mimics coach feedback.
 
-
-### 5. Secure Wireless Communication
-All sensor data transmitted via Bluetooth Low Energy is encrypted using AES-CTR (128-bit) with the mbedTLS library. The system requires authentication using a predefined activation key before streaming data, ensuring secure communication between the wearable device and mobile application.
-
 ---
 
 This is a critical distinction for your project documentation. In an academic or technical report, discovering an error *after* data collection is common and provides an opportunity to demonstrate **Scientific Integrity** and **Post-Processing Calibration**.
