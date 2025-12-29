@@ -5,8 +5,7 @@ title: A Dual-IMU Smart Trainer for Real-Time Lumbar Posture Correction in Weigh
 
 excerpt: A wearable biomechanical system using dual-IMU differential sensing to provide real-time haptic feedback for lumbar injury prevention during resistance training.
 
-<img src="/cover-image.jpg.jpg" width="800"><br/>
-  <i>Fig 0.</i>
+
 
 tags:
   - Biomechanics
@@ -42,6 +41,12 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 ## Demo
 
 ### Images
+
+<p align="center">
+  <img src="/cover-image.jpg" width="800"><br/>
+  <i>Fig 1. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
+</p>
+
 <p align="center">
   <img src="/hardware-components.jpg" width="800"><br/>
   <i>Fig 1. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
