@@ -284,17 +284,28 @@ mbedtls/aes.h   // AES encryption
 
 ## File Structure
 ```
-/smart-lumbar-trainer
-  ├─ smart-lumbar-trainer.md
-  ├─ cover-image.jpg
-  ├─ demo-video.mp4
-  ├─ hardware-components.jpg
-  ├─ deployment-back.jpg
-  ├─ app-release.apk
-  └─ sketch_sep29a/
-      ├─ sketch_sep29a.ino              
-      ├─ PostureEstimator.h             
-      └─ RobustOrientationFilter.h      
+/smart-lumbar-trainer                 # Root project directory
+  ├─ smart-lumbar-trainer.md          # Main technical report and detailed documentation
+  ├─ README.md                        # Project overview and setup instructions
+  ├─ LICENSE                          # Academic research and project licensing terms
+  ├─ app-release.apk                  # Compiled Android app for real-time data visualization
+  ├─ cover-image.ong                  # Visualization of System Architecture and Communication
+  ├─ deployment-back.jpg               # Back view of the wearable system on a test subject
+  ├─ deployment-side.jpg               # Side view of the system monitoring lumbar posture
+  ├─ hardware-components.jpg          # 3D Printed Housing Case
+  ├─ sketch_sep29a/                   # Directory for the ESP32 microcontroller firmware
+  │   ├─ sketch_sep29a.ino            # Main firmware logic for data collection and feedback
+  │   ├─ PostureEstimator.h           # Header for movement classification
+  │   └─ RobustOrientationFilter.h    # Header for sensor fusion and drift mitigation
+  └─ validated_results/               # Directory for biomechanical validation data From Kinovea Software
+      ├─ natural_position.jpg         # Baseline calibration image for neutral standing
+      ├─ start_movement_1.jpg         # Visual evidence capturing the onset of lumbar flexion
+      ├─ start_movement_2.jpg         # Visual evidence capturing the onset of lumbar flexion
+      ├─ start_movement_3.jpg         # Visual evidence capturing the onset of lumbar flexion
+      ├─ end_movement_1.jpg           # Visual evidence showing recovery to upright posture
+      ├─ end_movement_2.jpg           # Visual evidence showing recovery to upright posture
+      ├─ end_movement_3.jpg           # Visual evidence showing recovery to upright posture
+      └─ session_results.xlsx...csv   # CSV telemetry data used for software validation
 ```
 
 ## Technical Implementation Details
