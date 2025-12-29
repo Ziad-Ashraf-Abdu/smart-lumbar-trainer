@@ -20,7 +20,13 @@ tags:
 ---
 
 ## Acknowledgements
-We would like to express our gratitude to our Faculty Advisor, **Prof. Aliaa Rehan Youssef**, and the Systems and Biomedical Engineering Department at Cairo University for their guidance. This project was developed by Zeyad Ashraf, Andrawos Baheeg, Fady Osama, Amro Fekry.
+
+We would like to express our sincere gratitude to our Faculty Advisor, **Prof. Aliaa Rehan Youssef**, and the Systems and Biomedical Engineering Department at Cairo University for their continuous guidance and academic support throughout this project.
+
+We also acknowledge **MYOSA** for providing the development platform and hardware infrastructure that enabled the implementation and testing of the wearable system.
+
+This project was developed by **Zeyad Ashraf, Andrawos Baheeg, Fady Osama, and Amro Fekry**.
+
 
 ---
 
@@ -263,7 +269,7 @@ mbedtls/aes.h   // AES encryption
 ```
 /smart-lumbar-trainer
   ├─ smart-lumbar-trainer.md
-  ├─ cover-image.png
+  ├─ cover-image.jpg
   ├─ demo-video.mp4
   ├─ hardware-components.jpg
   ├─ deployment-back.jpg
