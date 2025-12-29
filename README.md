@@ -6,7 +6,7 @@ title: A Dual-IMU Smart Trainer for Real-Time Lumbar Posture Correction in Weigh
 excerpt: A wearable biomechanical system using dual-IMU differential sensing to provide real-time haptic feedback for lumbar injury prevention during resistance training.
 
 <p align="center">
-  <img src="/hardware-components.jpg" width="800"><br/>
+  <img src="/cover-image.jpg" width="800"><br/>
   <i>Fig 0.</i>
 </p>
 
