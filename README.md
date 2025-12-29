@@ -340,16 +340,17 @@ Future work for this system will focus on advancing longitudinal biomechanical a
 - **Exercise-Specific Biomechanical Context**  
   Incorporation of exercise-aware models (e.g., deadlift vs squat) to interpret flexion trends relative to task-specific biomechanical demands.
 
-- **Learning and Motor Adaptation Modeling**  
-  Investigation of motor learning effects by assessing whether repeated haptic feedback leads to reduced unsafe flexion without continuous cueing.
+- **Motor Learning and Adaptation Analysis**  
+  Investigation of motor learning effects by assessing whether repeated haptic feedback leads to sustained reductions in unsafe lumbar flexion without continuous cueing.
 
-- **Remote Progress Monitoring and Analytics**  
-  Optional aggregation of longitudinal flexion metrics to support coach-level analysis and long-term injury-risk profiling.
+- **Longitudinal Risk Profiling**  
+  Aggregation of flexion-related metrics over time to estimate cumulative exposure to potentially hazardous lumbar postures.
 
 - **Extended Experimental Validation**  
-  Larger-scale studies to correlate flexion trend improvements and feedback responsiveness with reduced injury risk across different user populations.
+  Larger-scale validation studies to correlate flexion trend improvements and feedback responsiveness with indicators of reduced injury risk.
 
-These future enhancements aim to transition the system from real-time posture correction toward an evidence-driven framework for motor learning and injury prevention.
+These developments aim to evolve the system from real-time posture correction into a longitudinal biomechanical assessment tool for injury prevention.
+
 
 
 ---
