@@ -43,17 +43,17 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 ### Images
 <p align="center">
   <img src="/hardware-components.jpg" width="800"><br/>
-  <i>The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
+  <i>Fig 1. The core electronic components: MYOSA ESP32 mainboard and MPU6050 Inertial Measurement Units.</i>
 </p>
 
 <p align="center">
   <img src="/deployment-back.jpg" width="800"><br/>
-  <i>The complete wearable system deployed on a test subject (back view).</i>
+  <i>Fig 2. The complete wearable system deployed on a test subject (back view).</i>
 </p>
 
 <p align="center">
   <img src="/deployment-side.jpg" width="800"><br/>
-  <i>Side view showing the system monitoring lumbar posture.</i>
+  <i>Fig 3. Side view showing the system monitoring lumbar posture.</i>
 </p>
 
 ### Videos
@@ -128,13 +128,13 @@ The following table maps the ground truth from Kinovea against the recorded tele
 | **Trial 3 (Start/End)** | -26.0° / 33.0° |54°| 5.8 / 0.0 |
 
 
-
 ### 3. Visual Evidence & Frame Analysis
 
 The images below represent the specific frames used for Kinovea validation. These frames confirm that while the sensor output required scaling, the **Relative Lumbar Flexion** detection correctly identified the *direction* and *timing* of every movement.
 
 <p align="center">
 <img src="validated_results/natural_position.jpg" width="450">
+  <i>Fig 4 .</i>
 
 
 
@@ -144,8 +144,11 @@ The images below represent the specific frames used for Kinovea validation. Thes
 
 <p align="center">
 <img src="validated_results/start_movement_1.jpg" width="280">
+    <i>Fig 5 .</i>
 <img src="validated_results/start_movement_2.jpg" width="280">
+    <i>Fig 6 .</i>
 <img src="validated_results/start_movement_3.jpg" width="280">
+    <i>Fig 7 .</i>
 
 
 
@@ -155,8 +158,11 @@ The images below represent the specific frames used for Kinovea validation. Thes
 
 <p align="center">
 <img src="validated_results/end_movement_1.jpg" width="280">
+    <i>Fig 8 .</i>
 <img src="validated_results/end_movement_2.jpg" width="280">
+    <i>Fig 9 .</i>
 <img src="validated_results/end_movement_3.jpg" width="280">
+    <i>Fig 10 .</i>
 
 
 
