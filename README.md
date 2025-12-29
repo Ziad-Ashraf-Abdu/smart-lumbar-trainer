@@ -327,31 +327,32 @@ Example: `15.2,-2.3,0.1,28.4,-2.1,0.2,13.2,YELLOW|FLEXION`
 
 ## Future Work
 
-Future development of the Dual-IMU Smart Trainer will focus on expanding both the analytical depth and user-facing capabilities of the system. Key planned enhancements include:
+## Future Work
+
+Future work for this system will focus on expanding both the analytical capabilities and the user experience. Planned developments include:
 
 - **Progress Monitoring & Longitudinal Analysis**  
-  Implement session-based data logging and trend analysis to track lumbar posture improvements over time, enabling objective assessment of technique progression and injury-risk reduction.
+  Session-based data logging and trend analysis to monitor lumbar posture improvements over time and objectively evaluate technique progression and injury-risk reduction.
 
 - **Personalized Threshold Adaptation**  
-  Introduce adaptive safety thresholds based on individual anthropometrics, training level, and historical performance rather than fixed angular limits.
+  Adaptive safety thresholds based on individual anthropometrics, training level, and historical performance instead of fixed angular limits.
 
-- **Exercise-Specific Models**  
-  Extend posture classification to be exercise-aware (e.g., deadlift, squat, Romanian deadlift), allowing context-dependent feedback and reduced false warnings.
+- **Exercise-Specific Posture Models**  
+  Exercise-aware posture classification (e.g., deadlift, squat, Romanian deadlift) to enable context-dependent feedback and reduce false warnings.
 
-- **Machine Learning–Based Classification**  
-  Integrate lightweight machine learning models to enhance movement phase detection and identify hazardous lifting patterns beyond simple threshold-based rules.
+- **Machine Learning–Based Movement Analysis**  
+  Integration of lightweight machine learning models to improve movement phase detection and identify hazardous lifting patterns beyond simple threshold-based logic.
 
-- **Cloud Integration & Remote Coaching**  
-  Enable optional cloud synchronization for remote progress monitoring, coach dashboards, and data-driven feedback outside the training session.
+- **Cloud Integration & Remote Monitoring**  
+  Optional cloud synchronization to support remote progress monitoring, coach dashboards, and long-term data analysis.
 
-- **Miniaturization & Wearability Improvements**  
-  Optimize hardware packaging, sensor placement, and textile integration to improve comfort, reduce motion artifacts, and support long-duration use.
+- **Wearability and Hardware Optimization**  
+  Further miniaturization, improved sensor placement, and enhanced textile integration to increase comfort and reduce motion artifacts.
 
-- **Extended Clinical Validation**  
-  Conduct large-scale validation studies across different populations (novice lifters, athletes, and rehabilitation patients) to further establish robustness and clinical relevance.
+- **Extended Experimental and Clinical Validation**  
+  Large-scale validation across different populations, including novice lifters, trained athletes, and rehabilitation users, to strengthen clinical relevance and robustness.
 
-These enhancements aim to evolve the system from a real-time corrective device into a comprehensive training analytics and injury-prevention platform.
-
+These developments aim to evolve the system from a real-time corrective tool into a comprehensive posture monitoring and injury-prevention platform.
 
 ---
 
