@@ -31,16 +31,16 @@ This project was developed by **Zeyad Ashraf, Andrawos Baheeg, Fady Osama, and A
 ---
 
 ## Overview
-Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics [1], [2], [3]. This project addresses the inability of novice weightlifters to dissociate hip flexion (i.e., hinging at the pelvis) from lumbar flexion (i.e., rounding the lower spine) during exercises such as the deadlift and squat[14] and [15].
+Low back pain (LBP) is a common musculoskeletal disorder, with high-load resistance training being a significant risk factor when performed with improper kinematics [1], [2], [3]. This project addresses a kinematic problem which is the inability of novice weightlifters to dissociate hip flexion (i.e., hinging at the pelvis) from lumbar flexion (i.e., rounding the lower spine) during exercises such as the deadlift and squat[14] and [15].
 
-The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isolate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion[8],[10]. Unlike single-sensor devices [6] that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements.
+We propose the **Dual-IMU Smart Trainer** system that uses a differential sensing architecture to estimate relative lumbar flexion through mathematical subtraction of pelvic motion from thoracic motion[8],[10]. Unlike single-sensor devices [6] that only measure global trunk inclination, this system ensures feedback is only triggered by actual form breakdowns, not healthy hip hinge movements. The advantage of using dual IMUs is to improve measurement accuracy yet with minimal use of hardware
 
 **Key features:**
-* **Differential Sensing**: Employs two MPU6050 sensors strategically placed at the thoracolumbar (T12/L1) and lumbosacral (L5/S1) junctions.
-* **Bilateral Haptic Feedback**: Immediate tactile cueing via vibration motors positioned over the erector (back) spinae muscles.
+* **Differential Sensing**: Employs two MPU6050 sensors strategically placed at the boundaries of lower back thoracolumbar (T12/L1) above and lumbosacral (L5/S1) junctions below.
+* **Bilateral Haptic Feedback**: Immediate tactile cueing for wrong motion via vibration motors positioned over the erector (back) spinae muscles.
 * **Robust Orientation Filter**: Combines complementary filtering and Zero-Velocity Update (ZUPT) algorithms to mitigate sensor drift.
-* **Secure Mobile Integration**: Real-time data spine visualization via Flutter app, with data secured using AES-CTR encryption over Bluetooth Low Energy.
-* **Three-Zone Safety System**: Green, Yellow, and Red zones based on biomechanical safe thresholds.
+* **Secure Mobile Integration**: Real-time data spine visualization as animated movement via Flutter app, with data secured using AES-CTR encryption over Bluetooth Low Energy.
+* **Three-Zone Safety System**: flagiing motions as Green, Yellow, and Red zones based on biomechanical safe thresholds.
 
 ---
 
@@ -82,17 +82,17 @@ The **Dual-IMU Smart Trainer** uses a differential sensing architecture to isola
 ### 1. Differential Sensing & Relative Angle Calculation
 The system derives the relative lumbar angle through quaternion-based kinematics using the formula:
 ```q_rel = q_sac^(-1) ⊗ q_thor``` [19]
-By isolating the rotation around the pitch axis (sagittal plane), the system specifically detects flexion/extension ( The subject then extends the trunk backward to return to the upright posture ) while ignoring lateral rotation and benign movements. 
+By isolating the rotation around the pitch axis (sagittal plane), the system specifically detects flexion/extension ( The subject then extends the trunk backward to return to the upright posture ) while ignoring lateral rotation and bending movements. 
 The pitch angle is extracted using:
 ``` θ_pitch = arcsin(2(q₀q₂ - q₃q₁)).```
 
-### 2. Calibration and ZUPT
-To eliminate zero-rate error, a blocking calibration routine averages 2000 samples at startup while the user remains stationary in an upright position. During operation, the Stance Hypothesis Optimal Detection (SHOE) [13] algorithm identifies stationary periods by computing a Generalized Likelihood Ratio Test statistic that combines accelerometer variance and gyroscope energy. When stationary periods are detected, Zero-Velocity Updates (ZUPT) are applied to maintain accuracy despite sensor drift[13].
+### 2. Calibration and Zero-Velocity Update (ZUPT) algorithms
+To eliminate zero-rate error, a blocking calibration routine averages 2000 samples at startup while the user remains stationary in an upright position. During operation, the Stance Hypothesis Optimal Detection (SHOE) [13] algorithm identifies stationary periods by computing a Generalized Likelihood Ratio Test statistic that combines accelerometer variance and gyroscope energy. When stationary periods are detected, ZUPT are applied to maintain accuracy despite sensor drift[13].
 
 ### 3. Posture Classification
 The system employs movement detection that classifies posture into three distinct cases:
 
-* **Flexion**: it's detected when angle decreases rapidly (>2° per update, >60°/s). In a deadlift, this represents the **descending phase** or the initial hinging at the hips to reach the bar. If detected during the pull, it indicates "rounding" of the back.
+* **Flexion**: detected when angle decreases rapidly (>2° per update, >60°/s). In a deadlift, this represents the **descending phase** or the initial hinging at the hips to reach down to the bar. If detected during the pull, it indicates "rounding" of the back.
 
 * **Extension**: detected when angle increases rapidly. This signifies the **concentric pull** or the "lockout" phase. It tracks the athlete’s transition from a hinged position back to a vertical standing state as they drive the hips forward to complete the lift.
 
@@ -115,7 +115,7 @@ The system classifies posture into three zones based on biomechanically safe thr
 
 ### 5. Relative Flexibility and Dissociation
 
-A key driver for exceeding these thresholds is **relative flexibility**, or the degree of dissociation between the hips and the lumbar spine. The body operates as a linked system where each segment influences the motion of adjacent segments.
+A key driver for exceeding these thresholds is **relative flexibility**, or the degree of dissociation between the hips and the lumbar spine movement. The body operates as a linked system where each segment influences the motion of adjacent segments.
 
 If an athlete has relatively higher stiffness in the hip joints compared to the lumbar spine, the spine will more readily flex to achieve the required depth or reach the barbell. The haptic feedback serves as a real-time monitor for this lack of dissociation; when the hips reach their terminal range, any further movement is forced into the lumbar region, triggering a transition from the Green to the Yellow or Red zones. This cueing encourages the athlete to maintain a "back-dominant" or "hip-dominant" strategy that preserves spinal neutrality[12].
 
@@ -123,7 +123,7 @@ If an athlete has relatively higher stiffness in the hip joints compared to the 
 
 ## Validation & Results
 
-The system's performance was evaluated by comparing real-time sensor data against ground truth kinematics extracted via **Kinovea biomechanical analysis software** [4]. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
+The system's performance was evaluated,in one subject, by comparing real-time sensor data against ground truth kinematics extracted via the computer vision-based **Kinovea biomechanical analysis software** [4]. This validation process was performed post-hoc, allowing for a detailed audit of the mathematical relationship between the firmware output and physical movement.
 
 ### 1. Post-Validation Error Discovery
 
@@ -135,7 +135,7 @@ During the validation phase, an analysis of the recorded test video revealed a c
 
 ### 2. Experimental Data Comparison
 
-The following table maps the ground truth from Kinovea against the recorded telemetry from the app. Because our **Upright Calibration** (ZUPT) treats the natural standing posture as the  reference, the "App Results" represent the relative deviation from that starting point.
+The following table maps the ground truth from Kinovea against the recorded telemetry from the app, for the tested subject. Because our **Upright Calibration** (ZUPT) treats the natural standing posture as the  reference, the "App Results" represent the relative deviation from that starting point.
 
 | Movement Phase | Kinovea Ground Truth |Flexion Angle| App Telemetry (Raw) |
 | --- | --- | --- | --- |
@@ -285,27 +285,27 @@ mbedtls/aes.h   // AES encryption
 ## File Structure
 ```
 /smart-lumbar-trainer                 # Root project directory
-  ├─ smart-lumbar-trainer.md          # Main technical report and detailed documentation
-  ├─ README.md                        # Project overview and setup instructions
-  ├─ LICENSE                          # Academic research and project licensing terms
-  ├─ app-release.apk                  # Compiled Android app for real-time data visualization
-  ├─ cover-image.ong                  # Visualization of System Architecture and Communication
-  ├─ deployment-back.jpg               # Back view of the wearable system on a test subject
-  ├─ deployment-side.jpg               # Side view of the system monitoring lumbar posture
+  ├─ smart-lumbar-trainer.md          # Main technical report
+  ├─ README.md                        # Project overview
+  ├─ LICENSE                          #  Project licensing terms
+  ├─ app-release.apk                  # Compiled Android app 
+  ├─ cover-image.ong                  # Visualization of the System
+  ├─ deployment-back.jpg               # Back view on test subject
+  ├─ deployment-side.jpg               # Side view on test subject
   ├─ hardware-components.jpg          # 3D Printed Housing Case
   ├─ sketch_sep29a/                   # Directory for the ESP32 microcontroller firmware
-  │   ├─ sketch_sep29a.ino            # Main firmware logic for data collection and feedback
+  │   ├─ sketch_sep29a.ino            # Main firmware logic
   │   ├─ PostureEstimator.h           # Header for movement classification
   │   └─ RobustOrientationFilter.h    # Header for sensor fusion and drift mitigation
-  └─ validated_results/               # Directory for biomechanical validation data From Kinovea Software
-      ├─ natural_position.jpg         # Baseline calibration image for neutral standing
-      ├─ start_movement_1.jpg         # Visual evidence capturing the onset of lumbar flexion
-      ├─ start_movement_2.jpg         # Visual evidence capturing the onset of lumbar flexion
-      ├─ start_movement_3.jpg         # Visual evidence capturing the onset of lumbar flexion
-      ├─ end_movement_1.jpg           # Visual evidence showing recovery to upright posture
-      ├─ end_movement_2.jpg           # Visual evidence showing recovery to upright posture
-      ├─ end_movement_3.jpg           # Visual evidence showing recovery to upright posture
-      └─ session_results.xlsx...csv   # CSV telemetry data used for software validation
+  └─ validated_results/               
+      ├─ natural_position.jpg         
+      ├─ start_movement_1.jpg       
+      ├─ start_movement_2.jpg        
+      ├─ start_movement_3.jpg         
+      ├─ end_movement_1.jpg        
+      ├─ end_movement_2.jpg          
+      ├─ end_movement_3.jpg          
+      └─ session_results.xlsx...csv
 ```
 
 ## Technical Implementation Details
@@ -382,9 +382,9 @@ These developments aim to evolve the system from real-time posture correction in
 ---
 ## Conclusion
 
-This work presented a **Dual-IMU Smart Trainer** for real-time lumbar posture monitoring and correction during resistance training, addressing a critical limitation of single-sensor systems that fail to distinguish healthy hip hinge motion from harmful lumbar flexion. By employing a **differential sensing architecture**, the system successfully isolated relative lumbar motion through quaternion-based kinematics, enabling accurate detection of flexion and extension independent of global trunk inclination.
+This work presented the **Dual-IMU Smart Trainer** system for real-time lumbar posture monitoring and correction during resistance training, addressing a critical limitation of single-sensor systems that fail to distinguish healthy hip hinge motion from harmful lumbar flexion. By employing a **differential sensing architecture**, the system successfully isolated relative lumbar motion through quaternion-based kinematics, enabling accurate detection of flexion and extension independent of global trunk inclination.
 
-The integration of **robust orientation filtering**, **SHOE-based Zero-Velocity Updates (ZUPT)**, and an **upright reference calibration** ensured stable measurements with minimal drift, even during repetitive dynamic movements. Experimental validation using **Kinovea-based video analysis** confirmed that, despite an initial scaling issue later identified and addressed, the system reliably captured the **direction, timing, and repeatability** of lumbar flexion events. The consistent return to a zero reference after each repetition further validated the effectiveness of the drift-mitigation strategy.
+The integration of **robust orientation filtering**, **SHOE-based Zero-Velocity Updates (ZUPT)**, and an **upright reference calibration** ensured stable consistent measurements with minimal drift, even during repetitive dynamic movements. Experimental validation using **Kinovea-based video analysis** confirmed that, despite an initial scaling issue later identified and addressed, the system reliably captured the **direction, timing, and repeatability** of lumbar flexion events. The consistent return to a zero reference after each repetition further validated the effectiveness of the drift-mitigation strategy.
 
 By combining accurate biomechanical sensing with an intuitive **three-zone haptic feedback system**, the proposed trainer provides immediate, coach-like tactile cues that promote safer lifting mechanics without restricting natural movement. Overall, this project demonstrates the feasibility of a low-cost, wearable, and secure platform for real-time lumbar posture correction and establishes a strong foundation for future longitudinal biomechanical assessment and injury prevention research.
 
